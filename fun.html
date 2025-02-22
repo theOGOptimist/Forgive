@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry! 💕</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+IT+Moderna:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+    body {
+  font-family: "Playwrite IT Moderna", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: bolder;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background: #fff0f58a;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ff3e6b;
+      margin-bottom: 15px;
+      animation: heartbeat 1.5s infinite alternate;
+    }
+    @keyframes heartbeat {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+    p {
+
+      font-size: 1.2rem;
+      color: #9c3f5e;
+      margin-bottom: 25px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    button {
+        font-family: "Playwrite IT Moderna", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: bolder;
+      background-color: #ff6f91;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    button:hover {
+      background-color: #ff3e6b;
+      transform: scale(1.1);
+    }
+    button#yesButton {
+      background-color: #ff3e6b;
+    }
+    button#noButton {
+      background-color: #c2185b;
+    }
+    .hidden {
+        
+      display: none;
+    }
+    .message {
+        
+      font-size: 1.8rem;
+      color: #ff3e6b;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>I'm Sorry! 💖</h1>
+    <p>Hey U! I don't request u but better forgive and love me more! Will u? 💕</p>
+    <div class="buttons">
+      <button id="yesButton">Yes 💞</button>
+      <button id="noButton">No 💔</button>
+    </div>
+    <div id="hiddenMessage" class="hidden message">
+      Love u so muchhh💗💗💗
+    </div>
+  </div>
+
+  <script>
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const hiddenMessage = document.getElementById('hiddenMessage');
+    let noClicks = 0;
+
+    yesButton.addEventListener('click', () => {
+      yesButton.style.transform = "scale(1.2)";
+      hiddenMessage.classList.remove('hidden');
+    });
+
+    noButton.addEventListener('click', () => {
+      noClicks++;
+
+      // Shrink No button
+      let scaleFactor = Math.max(0.8 - noClicks * 0.03, 0.1);
+      noButton.style.transform = `scale(${scaleFactor})`;
+
+      // Increase Yes button size
+      let yesScale = 1 + noClicks * 0.1;
+      yesButton.style.transform = `scale(${yesScale})`;
+
+      if (noClicks >= 20) {
+        noButton.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
